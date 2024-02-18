@@ -1,6 +1,8 @@
 {
   "name": "client",
   "version": "0.0.0",
+  "author": "gawgaw",
+  "description": "A client side web application built with Angular.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 3003",

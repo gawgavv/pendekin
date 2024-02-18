@@ -1,8 +1,8 @@
 {
   "name": "server",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "A server side web application that uses HTTP based API with RESTful architecture",
+  "author": "gawgaw",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
