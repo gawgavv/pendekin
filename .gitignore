@@ -1,0 +1,6 @@
+# Environment variables for docker compose services
+.env
+
+# Data from run container
+cache_data
+db_data

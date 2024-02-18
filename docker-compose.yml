@@ -1,0 +1,35 @@
+version: '0.0.1'
+
+
+services:
+
+  database:
+    image: postgres:16.1
+    volumes:
+      - ./db_data:/home/pendekinapp/database
+    ports:
+      - 3001:5432
+    environment:
+      - POSTGRES_USER=${PG_USER}
+      - POSTGRES_PASSWORD=${PG_PASS}
+      - POSTGRES_DB=${PG_DB}
+      - PGTZ=${PG_TZ}
+      - TZ=${TZ}
+    env_file:
+      - .env
+
+  cache:
+    image: redis:7.2.4
+    volumes:
+      - ./cache_data:/home/pendekinapp/cache
+    command: /bin/sh -c "redis-server --requirepass $$REDIS_PASS"
+    ports:
+      - 3002:6379
+    env_file:
+      - .env
+
+volumes:
+  database:
+    driver: local
+  cache:
+    driver: local
