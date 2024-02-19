@@ -36,11 +36,11 @@ export class UrlsService {
     return id;
   }
 
-  findAll() {
-    return `This action returns all urls`;
+  async count(): Promise<number> {
+    return await this.urlRepository.count();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} url`;
+  async findOne(shortUrlId: string): Promise<{ origin: string }> {
+    return await this.urlRepository.findOne({ select: [`origin`], where: { id: shortUrlId } });
   }
 }

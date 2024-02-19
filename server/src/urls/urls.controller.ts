@@ -12,14 +12,4 @@ export class UrlsController {
     const shortenedUrlId =  await this.urlsService.create(createUrlDto);
     return { shortened: process.env.SERVER_HOST + shortenedUrlId }
   }
-
-  @Get()
-  findAll() {
-    return this.urlsService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.urlsService.findOne(+id);
-  }
 }
