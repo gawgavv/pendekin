@@ -17,12 +17,12 @@ export class CacheService {
         private readonly clicksService: ClicksService
     ) {}
     
-    @Cron(`* * */12 * * *`) // This means this method will run every 12 hours
+    @Cron(`0 0 */12 * * *`) // This means this method will run every 12 hours
     async cacheDataPer12Hour(): Promise<void> {
 
         const todayClicks = await this.clicksService.getTodayClicks();
 
-        let hashFormClick = {};
+        let hashFormClick = { key: "value" }; // default to this so when there is no clicks today server wouldn't throw an error
 
         todayClicks.forEach(({ urlId, origin }) => hashFormClick[urlId] = origin);
         console.log(hashFormClick);
