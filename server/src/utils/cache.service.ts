@@ -18,7 +18,7 @@ export class CacheService {
     ) {}
     
     @Cron(`* * */12 * * *`) // This means this method will run every 12 hours
-    async cacheDataPer12Hour() {
+    async cacheDataPer12Hour(): Promise<void> {
 
         const todayClicks = await this.clicksService.getTodayClicks();
 
