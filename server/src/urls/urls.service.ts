@@ -36,8 +36,8 @@ export class UrlsService {
     return id;
   }
 
-  findAll() {
-    return `This action returns all urls`;
+  async count(): Promise<number> {
+    return await this.urlRepository.count();
   }
 
   async findOne(shortUrlId: string): Promise<{ origin: string }> {
