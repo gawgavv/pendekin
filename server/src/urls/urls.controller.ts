@@ -8,8 +8,9 @@ export class UrlsController {
   constructor(private readonly urlsService: UrlsService) {}
 
   @Post()
-  create(@Body() createUrlDto: CreateUrlDto) {
-    return this.urlsService.create(createUrlDto);
+  async create(@Body() createUrlDto: CreateUrlDto): Promise<{ shortened: string }> {
+    const shortenedUrlId =  await this.urlsService.create(createUrlDto);
+    return { shortened: process.env.SERVER_HOST + shortenedUrlId }
   }
 
   @Get()

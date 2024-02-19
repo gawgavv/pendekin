@@ -1,9 +1,22 @@
 import { Module } from '@nestjs/common';
-import { UrlsService } from './urls.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
 import { UrlsController } from './urls.controller';
+import { UrlsService } from './urls.service';
+import { RandomIDService } from '../utils/randomid.service';
+
+import { Url } from './entities/url.entity';
 
 @Module({
-  controllers: [UrlsController],
-  providers: [UrlsService],
+  imports: [
+    TypeOrmModule.forFeature([Url])
+  ],
+  controllers: [
+    UrlsController
+  ],
+  providers: [
+    UrlsService,
+    RandomIDService
+  ],
 })
 export class UrlsModule {}
