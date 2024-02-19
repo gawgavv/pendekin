@@ -1,6 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CacheModule } from '@nestjs/cache-manager';
+
+import { RedisClientOptions } from 'redis'
+import { redisStore } from 'cache-manager-redis-yet';
 
 import { UrlsModule } from './urls/urls.module';
 import { ClicksModule } from './clicks/clicks.module';
@@ -25,6 +29,14 @@ import { AppController } from './app.controller';
       entities: [Url, Click],
       logging: true,
       synchronize: true
+    }),
+    CacheModule.register<RedisClientOptions>({
+      store: redisStore,
+      password: process.env.CACHE_PASS,
+      socket: {
+        host: process.env.CACHE_HOST,
+        port: +process.env.CACHE_PORT
+      }
     })
   ],
   controllers: [
