@@ -20,12 +20,12 @@ export class CacheService {
     @Cron(`* * */12 * * *`) // This means this method will run every 12 hours
     async cacheDataPer12Hour() {
 
-        const todayClicks = await this.clicksService.getTodayClicks()
+        const todayClicks = await this.clicksService.getTodayClicks();
 
-        let hashFormClick = {}
+        let hashFormClick = {};
 
-        todayClicks.forEach(({ urlId, origin }) => hashFormClick[urlId] = origin)
-        console.log(hashFormClick)
+        todayClicks.forEach(({ urlId, origin }) => hashFormClick[urlId] = origin);
+        console.log(hashFormClick);
 
         await this.cacheService.store.client.DEL(this.CACHE_KEY);
         await this.cacheService.store.client.HSET(this.CACHE_KEY, hashFormClick); // Using hash data structure(similar to object in javascript) to store urlId and originUrl in cache because of it maps to relation between urlId as the key and originUrl the value which the requests is going to get redirected to. Also hash data structure time complexity is O(1) (according to the documentation on redis).
