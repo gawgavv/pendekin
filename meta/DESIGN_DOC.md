@@ -10,7 +10,7 @@
 <br>
 
 ## Minimum Viable Product
-- User can submit a long URL and get a shortened URL as long as the user's requests haven't exceeded daily limit
+- User can submit a long URL and get a shortened URL as long as the user's requests haven't exceeded limit
 - Somebody can uses the shortened URL and gets redirected to the original long URL
 - User can see how many people clicked the shortened URL
 
