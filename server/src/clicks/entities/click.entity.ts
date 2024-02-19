@@ -37,6 +37,6 @@ export class Click {
         name: `urlId`,
         foreignKeyConstraintName: `ClickFKOnUrl`
     })
-    click: Click;
+    url: Url;
 
 }
