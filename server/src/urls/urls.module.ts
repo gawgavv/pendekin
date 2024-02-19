@@ -18,5 +18,8 @@ import { Url } from './entities/url.entity';
     UrlsService,
     RandomIDService
   ],
+  exports: [
+    UrlsService
+  ]
 })
 export class UrlsModule {}

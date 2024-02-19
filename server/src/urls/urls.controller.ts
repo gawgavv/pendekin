@@ -20,6 +20,6 @@ export class UrlsController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.urlsService.findOne(+id);
+    return this.urlsService.findOne(id);
   }
 }

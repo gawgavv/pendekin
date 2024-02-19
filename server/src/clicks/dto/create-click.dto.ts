@@ -1,1 +1,4 @@
-export class CreateClickDto {}
+export class CreateClickDto {
+
+    urlId: string
+}

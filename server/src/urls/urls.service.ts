@@ -40,7 +40,7 @@ export class UrlsService {
     return `This action returns all urls`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} url`;
+  async findOne(shortUrlId: string): Promise<{ origin: string }> {
+    return await this.urlRepository.findOne({ select: [`origin`], where: { id: shortUrlId } });
   }
 }
