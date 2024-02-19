@@ -18,7 +18,7 @@ export class ClicksService {
     return await this.clicksRepository.save(newClick);
   }
 
-  async getUrlTotalClicks(urlId: string) {
+  async getTotalClicks(urlId: string) {
   }
 
   async getTodayClicks(): Promise<{ count: string, urlId: string, origin: string }[]> { // If today's clicked URLs is less than 50 urls then just cached every single of it, if it not just cache 10% of the clicked urls(50 urls and 10% is just random number I picked because it's not too many and still maintainable as a cache).

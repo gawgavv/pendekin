@@ -8,7 +8,7 @@ export class ClicksController {
   constructor(private readonly clicksService: ClicksService) {}
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.clicksService.getUrlTotalClicks(id);
+  getTotalClicks(@Param('id') id: string) {
+    return this.clicksService.getTotalClicks(id);
   }
 }
