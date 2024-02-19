@@ -6,13 +6,9 @@ import { UpdateClickDto } from './dto/update-click.dto';
 @Controller('clicks')
 export class ClicksController {
   constructor(private readonly clicksService: ClicksService) {}
-  @Get()
-  findAll() {
-    return this.clicksService.findAll();
-  }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.clicksService.findOne(+id);
+    return this.clicksService.getUrlTotalClicks(id);
   }
 }
