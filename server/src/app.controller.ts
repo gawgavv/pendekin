@@ -21,6 +21,6 @@ export class AppController {
 
         const result = await this.clicksService.create({ urlId: id });
 
-        return { url: origin };
+        return { url: origin }; // Request would be redirected to whatever returned from this method
     }
 }
